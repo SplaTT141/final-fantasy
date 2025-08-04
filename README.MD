@@ -62,7 +62,7 @@ There is no tests for this project.
 
 ## 🎅 Authors
 
-Rimantas: [Github](https://github.com/splatt141)
+Ernest: [Github](https://github.com/splatt141)
 
 ## ⚠️ License
 
