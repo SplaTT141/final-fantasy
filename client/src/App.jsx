@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
 import { HomePage } from './pages/public/Home';
 import { PublicLayout } from './templates/PublicLayout';
-import { NotFound } from './pages/public/NotFound';
+import { NotFoundPage } from './pages/public/NotFound';
+import { CategoriesPage } from './pages/public/Categories';
 
 export function App() {
   return (
@@ -9,7 +10,8 @@ export function App() {
       <Routes>
         <Route element={<PublicLayout />}>
           <Route path="/" index element={<HomePage />} />
-          <Route path="*" index element={<NotFound />} />
+          <Route path="*" element={<NotFoundPage />} />
+          <Route path="/categories" element={<CategoriesPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

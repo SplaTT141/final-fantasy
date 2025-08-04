@@ -1,7 +1,7 @@
 import heroImg from '../../assets/hero.png'
 import { Link } from "react-router";
 
-export function NotFound() {
+export function NotFoundPage() {
     return ( 
         <main>
             <div className="container col-xxl-8 px-4 py-5">
