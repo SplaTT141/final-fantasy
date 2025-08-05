@@ -1,7 +1,9 @@
+import { AdminPageTitle } from "../../../components/AdminPageTilte";
+
 export function AdminNewCategoryPage() {
     return ( 
         <main>
-            admin new category
+            <AdminPageTitle title={'New category'} />
         </main>
     );
 }

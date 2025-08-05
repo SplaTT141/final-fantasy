@@ -1,7 +1,9 @@
-export function AdminCategoryDraftPage() {
+import { AdminPageTitle } from "../../../components/AdminPageTilte";
+
+export function AdminDraftCategoryPage() {
     return ( 
         <main>
-            admin draftcategories all
+            <AdminPageTitle title={'Draft categories'} />
         </main>
     );
 }

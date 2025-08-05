@@ -15,7 +15,7 @@ import { AdminNewCategoryPage } from './pages/admin/categories/NewCategory';
 import { AdminViewCategoryPage } from './pages/admin/categories/ViewCategory';
 import { AdminEditCategoryPage } from './pages/admin/categories/EditCategory';
 import { AdminPublishedCategoryPage } from './pages/admin/categories/CategoriesPublished';
-import { AdminCategoryDraftPage } from './pages/admin/categories/CategoriesDraft';
+import { AdminDraftCategoryPage } from './pages/admin/categories/CategoriesDraft';
 import { AdminMoviesAllPage } from './pages/admin/movies/MoviesAll';
 import { AdminNewMoviePage } from './pages/admin/movies/NewMovie';
 import { AdminViewMoviePage } from './pages/admin/movies/ViewMovie';
@@ -52,7 +52,7 @@ export function App() {
           <Route path="/admin/categories/:category" element={<AdminViewCategoryPage />} />
           <Route path="/admin/categories/:category/edit" element={<AdminEditCategoryPage />} />
           <Route path="/admin/categories/published" element={<AdminPublishedCategoryPage />} />
-          <Route path="/admin/categories/draft" element={<AdminCategoryDraftPage />} />
+          <Route path="/admin/categories/draft" element={<AdminDraftCategoryPage />} />
         </Route>
 
         <Route element={<PublicLayout />}>
