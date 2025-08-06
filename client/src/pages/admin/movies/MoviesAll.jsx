@@ -1,5 +1,5 @@
 import { AdminMoviesTable } from "../../../components/AdminMoviesTable";
-import { AdminPageTitle } from "../../../components/AdminPageTilte";
+import { AdminPageTitle } from "../../../components/AdminPageTitle";
 
 export function AdminMoviesAllPage() {
     return ( 

@@ -1,5 +1,5 @@
 import { AdminCategoriesTable } from "../../../components/AdminCategoriesTable";
-import { AdminPageTitle } from "../../../components/AdminPageTilte";
+import { AdminPageTitle } from "../../../components/AdminPageTitle";
 
 export function AdminCategoriesAllPage() {
     return ( 

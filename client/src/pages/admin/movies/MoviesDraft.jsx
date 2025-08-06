@@ -1,4 +1,4 @@
-import { AdminPageTitle } from "../../../components/AdminPageTilte";
+import { AdminPageTitle } from "../../../components/AdminPageTitle";
 
 export function AdminMovieDraftPage() {
     return ( 

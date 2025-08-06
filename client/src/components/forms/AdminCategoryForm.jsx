@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-export function AdminCategoryForm() {
-    const [title, setTitle] = useState('');
-    const [url, setUrl] = useState('');
-    const [description, setDescription] = useState('');
-    const [status, setStatus] = useState('draft');
+export function AdminCategoryForm({ category }) {
+    const [title, setTitle] = useState(category?.title ?? '');
+    const [url, setUrl] = useState(category?.url ?? '');
+    const [description, setDescription] = useState(category?.description ?? '');
+    const [status, setStatus] = useState(category?.status ?? 'draft');
 
     function handleFormSubmit(e) {
         e.preventDefault();
@@ -21,7 +21,7 @@ export function AdminCategoryForm() {
                 status,
             }),
         })
-            .then (res => res.json())
+            .then(res => res.json())
             .then(data => {
                 console.log(data);
             })
@@ -29,29 +29,34 @@ export function AdminCategoryForm() {
     }
 
     return (
-        <form onSubmit={handleFormSubmit} className="col-12 col-md-9 col-lg-6">
+        <form onSubmit={handleFormSubmit} className="col-12 col-md-9 col-lg-6 mt-5">
             <div className="mb-3">
                 <label htmlFor="title" className="form-label">Title</label>
-                <input onChange={e => setTitle(e.target.value)} value={title} type="text" className="form-control" id="title" required="" />
+                <input onChange={e => setTitle(e.target.value)} value={title} type="text"
+                    className="form-control" id="title" required />
             </div>
             <div className="mb-3">
                 <label htmlFor="url" className="form-label">Url slug</label>
-                <input onChange={e => setUrl(e.target.value)} value={url} type="text" className="form-control" id="url" required="" />
+                <input onChange={e => setUrl(e.target.value)} value={url} type="text"
+                    className="form-control" id="url" required />
             </div>
             <div className="mb-3">
                 <label htmlFor="description" className="form-label">Description</label>
-                <textarea onChange={e => setDescription(e.target.value)} value={description} className="form-control" id="description"></textarea>
+                <textarea onChange={e => setDescription(e.target.value)} value={description}
+                    className="form-control" id="description"></textarea>
             </div>
             <div className="mb-3">
                 <label className="form-label">Status</label>
                 <div className="form-check">
-                    <input onChange={() => setStatus('published')} 
-                    checked={status === 'published' ? 'checked' : ''} type="radio" name="radios" 
-                    className="form-check-input" id="status_published" required />
+                    <input onChange={() => setStatus('published')}
+                        checked={status === 'published' ? 'checked' : ''}
+                        type="radio" name="radios" className="form-check-input" id="status_published" required />
                     <label className="form-check-label" htmlFor="status_published">Published</label>
                 </div>
                 <div className="form-check">
-                    <input onChange={() => setStatus('draft')} checked={status === 'draft' ? 'checked' : ''} type="radio" name="radios" className="form-check-input" id="status_draft" required />
+                    <input onChange={() => setStatus('draft')}
+                        checked={status === 'draft' ? 'checked' : ''}
+                        type="radio" name="radios" className="form-check-input" id="status_draft" required />
                     <label className="form-check-label" htmlFor="status_draft">Draft</label>
                 </div>
             </div>

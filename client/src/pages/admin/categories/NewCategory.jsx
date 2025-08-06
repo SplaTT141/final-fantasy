@@ -1,4 +1,4 @@
-import { AdminPageTitle } from "../../../components/AdminPageTilte";
+import { AdminPageTitle } from "../../../components/AdminPageTitle";
 import { AdminCategoryForm } from "../../../components/forms/AdminCategoryForm";
 
 export function AdminNewCategoryPage() {
