@@ -5,7 +5,7 @@ import { Footer } from "../components/Footer"
 export function PublicLayout() {
     return (
         <>
-            <div className="cointainer">
+            <div className="container">
                 <Header />
             </div>
             <Outlet />

@@ -1,4 +1,4 @@
-export function AdminPageTitle({title}) {
+export function AdminPageTitle({ title }) {
     return (
         <div className="container">
             <div className="row">
