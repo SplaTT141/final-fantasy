@@ -23,10 +23,12 @@ import { AdminEditMoviePage } from './pages/admin/movies/EditMovie';
 import { AdminPublishedMoviesPage } from './pages/admin/movies/MoviesPublished';
 import { AdminMovieDraftPage } from './pages/admin/movies/MoviesDraft';
 import { LogoutPage } from './pages/public/Logout';
+import { UserContextWrapper } from './context/user/UserContextWrapper';
 
 export function App() {
   return (
-    <BrowserRouter>
+    <UserContextWrapper>
+      <BrowserRouter>
       <Routes>
         <Route element={<PublicLayout />}>
           <Route path="/" index element={<HomePage />} />
@@ -62,6 +64,7 @@ export function App() {
         </Route>
 
       </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
+    </UserContextWrapper>
   );
 }
