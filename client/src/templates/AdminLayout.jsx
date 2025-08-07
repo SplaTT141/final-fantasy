@@ -1,12 +1,14 @@
-import { Outlet } from "react-router"
-import { Header } from "../components/Header"
-import { Footer } from "../components/Footer"
-import { Sidebar } from "../components/Sidebar"
+import { useContext } from "react";
+import { Outlet } from "react-router";
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
+import { Sidebar } from "../components/Sidebar";
 import { LoginForm } from "../components/forms/LoginForm";
 import { PublicPageTitle } from "../components/PublicPageTitle";
+import { UserContext } from "../context/user/UserContext";
 
 export function AdminLayout() {
-    const isLoggedIn = false;
+    const { isLoggedIn } = useContext(UserContext);
 
     return (
         <>
