@@ -5,7 +5,7 @@ export function RegisterForm() {
 
     function handleFormSubmit(e) {
         e.preventDefault();
-
+        //fetch
         navigate('/login')
     }
 
