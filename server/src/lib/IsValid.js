@@ -151,7 +151,7 @@ export class IsValid {
         }
 
         if (text !== 'agree') {
-            return [true, 'Turite sutikti su vartotojo salygomis'];
+            return [true, 'Turite pazymeti, kad sutinkate su vartotojo salygomis'];
         }
 
         return [false, ''];
