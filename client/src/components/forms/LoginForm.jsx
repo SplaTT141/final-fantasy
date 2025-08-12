@@ -19,7 +19,6 @@ export function LoginForm() {
     function handleFormSubmit(e) {  
         e.preventDefault();
         // login('chuck@norris.lt', 1);
-        // navigate('/admin');
 
         setUsernameOrEmailErr('');
         setPasswordErr('');
@@ -49,6 +48,9 @@ export function LoginForm() {
                         setPasswordErr(data.msg.password);
                     }
                 } else {
+                    if (data.user) {
+                        login(data.user.email, data.user.id);
+                    }
                     navigate('/admin');
                 }
             })
