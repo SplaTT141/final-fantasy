@@ -1,9 +1,11 @@
+import { AdminCategoriesTable } from "../../../components/AdminCategoriesTable";
 import { AdminPageTitle } from "../../../components/AdminPageTitle";
 
-export function AdminPublishedCategoryPage() {
-    return ( 
+export function AdminCategoriesPublishedPage() {
+    return (
         <main>
-            <AdminPageTitle title={'Published categories'} />
+            <AdminPageTitle title="Published categories" />
+            <AdminCategoriesTable />
         </main>
     );
 }

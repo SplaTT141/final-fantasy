@@ -1,9 +1,11 @@
+import { AdminMoviesTable } from "../../../components/AdminMoviesTable";
 import { AdminPageTitle } from "../../../components/AdminPageTitle";
 
-export function AdminMovieDraftPage() {
-    return ( 
+export function AdminMoviesDraftPage() {
+    return (
         <main>
-            <AdminPageTitle title={'Draft movies'} />
+            <AdminPageTitle title="Draft movies" />
+            <AdminMoviesTable />
         </main>
     );
 }

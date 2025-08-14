@@ -16,7 +16,6 @@ export function UserContextWrapper(props) {
             .then(res => res.json())
             .then(data => {
                 if (data.status === 'success') {
-                    console.log(data);
                     login(data.user.email, data.user.id);
                 } 
             })
