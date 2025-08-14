@@ -33,9 +33,19 @@ export function CategoriesContextWrapper(props) {
             .catch(console.error);
     }, []);
 
+    function getPublicCategoryByUrlSlug(url) {
+        return publicCategories.find(cat => cat.url_slug === url);
+    }
+
+    function getAdminCategoryByUrlSlug(url) {
+        return adminCategories.find(cat => cat.url_slug === url);
+    }
+
     const values = {
         publicCategories,
         adminCategories,
+        getPublicCategoryByUrlSlug,
+        getAdminCategoryByUrlSlug,
     };
 
     return (
