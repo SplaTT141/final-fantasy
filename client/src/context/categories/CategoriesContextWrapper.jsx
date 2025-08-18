@@ -37,19 +37,19 @@ export function CategoriesContextWrapper(props) {
     }
 
     function deletePublicCategory(urlSlug) {
-        setPublicCategories(currentList => [...currentList.filter(c => c.url_slug !== urlSlug)]);
+        setPublicCategories(currentList => [currentList.filter(movie => movie.url_slug !== urlSlug)]);
     }
 
     function deleteAdminCategory(urlSlug) {
-        setAdminCategories(currentList => [...currentList.filter(c => c.url_slug !== urlSlug)]);
+        setAdminCategories(currentList => [currentList.filter(movie => movie.url_slug !== urlSlug)]);
     }
 
     function getPublicCategoryByUrlSlug(url) {
-        return publicCategories.find(cat => cat.url_slug === url);
+        return publicCategories.find(movie => movie.url_slug === url);
     }
 
     function getAdminCategoryByUrlSlug(url) {
-        return adminCategories.find(cat => cat.url_slug === url);
+        return adminCategories.find(movie => movie.url_slug === url);
     }
 
     useEffect(updatePublicCategories, []);
