@@ -9,7 +9,7 @@ export function CategoriesContextWrapper(props) {
 
     const { isLoggedIn } = useContext(UserContext);
 
-    useEffect(() => {
+    function updatePublicCategories() {
         fetch('http://localhost:5519/api/categories', {
             method: 'GET',
         })
@@ -20,25 +20,29 @@ export function CategoriesContextWrapper(props) {
                 }
             })
             .catch(console.error);
-    }, []);
+    }
 
-    useEffect(() => {
-        if (isLoggedIn) {
-            fetch('http://localhost:5519/api/admin/categories', {
-                method: 'GET',
-                credentials: 'include',
+    function updateAdminCategories() {
+        fetch('http://localhost:5519/api/admin/categories', {
+            method: 'GET',
+            credentials: 'include',
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    setAdminCategories(() => data.categories);
+                }
             })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.status === 'success') {
-                        setAdminCategories(() => data.categories);
-                    }
-                })
-                .catch(console.error);
-        } else {
-            setAdminCategories(() => initialCategoriesContext.adminCategories);
-        }
-    }, [isLoggedIn]);
+            .catch(console.error);
+    }
+
+    function deletePublicCategory(urlSlug) {
+        setPublicCategories(currentList => [...currentList.filter(c => c.url_slug !== urlSlug)]);
+    }
+
+    function deleteAdminCategory(urlSlug) {
+        setAdminCategories(currentList => [...currentList.filter(c => c.url_slug !== urlSlug)]);
+    }
 
     function getPublicCategoryByUrlSlug(url) {
         return publicCategories.find(cat => cat.url_slug === url);
@@ -48,11 +52,25 @@ export function CategoriesContextWrapper(props) {
         return adminCategories.find(cat => cat.url_slug === url);
     }
 
+    useEffect(updatePublicCategories, []);
+
+    useEffect(() => {
+        if (isLoggedIn) {
+            updateAdminCategories();
+        } else {
+            setAdminCategories(() => initialCategoriesContext.adminCategories);
+        }
+    }, [isLoggedIn]);
+
     const values = {
         publicCategories,
         adminCategories,
         getPublicCategoryByUrlSlug,
         getAdminCategoryByUrlSlug,
+        updatePublicCategories,
+        updateAdminCategories,
+        deletePublicCategory,
+        deleteAdminCategory,
     };
 
     return (

@@ -13,6 +13,7 @@ import { getPublicCategories } from './src/api/public/getCategories.js';
 import { getAdminCategories } from './src/api/admin/categories/getCategories.js';
 import { isPublic } from './src/middleware/isPublic.js';
 import { putAdminCategories } from './src/api/admin/categories/putCategories.js';
+import { deleteCategories } from './src/api/admin/categories/deleteCategories.js';
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.get('/api/login', isAdmin, getLogin);
 app.get('/api/admin/categories', isAdmin, getAdminCategories);
 app.post('/api/admin/categories', isAdmin, postAdminCategories);
 app.put('/api/admin/categories/:original_url', isAdmin, putAdminCategories);
+app.delete('/api/admin/categories/:url', isAdmin, deleteCategories);
 
 app.use((err, req, res, next) => {
     console.log(err);
