@@ -3,7 +3,7 @@ import { AdminPageTitle } from "../../../components/AdminPageTitle";
 import { Alert } from "../../../components/Alert";
 import { useContext } from 'react';
 import { MoviesContext } from '../../../context/movies/MoviesContext';
-import { AdminViewMovieTable } from '../../../components/AdminViewMovieTable';
+import { AdminViewCategoryTable } from '../../../components/AdminViewCategoryTable';
 
 export function AdminViewMoviePage() {
     const { getAdminMovieByUrlSlug } = useContext(MoviesContext);
