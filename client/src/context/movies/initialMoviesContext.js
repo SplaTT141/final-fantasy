@@ -1,6 +1,10 @@
 export const initialMoviesContext = {
     publicMovies: [],
     adminMovies: [],
-    getAdminMovieByUrlSlug: () => { },
     getPublicMovieByUrlSlug: () => { },
+    getAdminMovieByUrlSlug: () => { },
+    updatePublicMovies: () => { },
+    updateAdminMovies: () => { },
+    deletePublicMovie: () => { },
+    deleteAdminMovie: () => { },
 };

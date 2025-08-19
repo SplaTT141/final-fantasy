@@ -1,6 +1,11 @@
 export const initialCategoriesContext = {
     publicCategories: [],
     adminCategories: [],
-    getAdminCategoryByUrlSlug: () => { },
     getPublicCategoryByUrlSlug: () => { },
+    getAdminCategoryByUrlSlug: () => { },
+    getAdminCategoryById: () => { },
+    updatePublicCategories: () => { },
+    updateAdminCategories: () => { },
+    deletePublicCategory: () => { },
+    deleteAdminCategory: () => { },
 };

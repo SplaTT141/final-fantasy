@@ -1,4 +1,4 @@
-export function formatDuration(duration = 35.5) {
+export function formatDuration(duration = 0) {
     if (duration < 1) {
         return '-';
     }
@@ -10,7 +10,7 @@ export function formatDuration(duration = 35.5) {
 
     if (h === 1) {
         text += h + ' hour';
-    } else if (h > 1) {
+    } if (h > 1) {
         text += h + ' hours';
     }
 
@@ -20,7 +20,7 @@ export function formatDuration(duration = 35.5) {
 
     if (m === 1) {
         text += m + ' minute';
-    } else if (m > 1) {
+    } if (m > 1) {
         text += m + ' minutes';
     }
 
