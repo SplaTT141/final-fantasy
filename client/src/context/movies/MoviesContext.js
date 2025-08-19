@@ -1,4 +1,4 @@
 import { createContext } from "react";
-import { initialMoviesContext } from "./initialCategoriesContext";
+import { initialMoviesContext } from "./initialMoviesContext";
 
 export const MoviesContext = createContext(initialMoviesContext);
