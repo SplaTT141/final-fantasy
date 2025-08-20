@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { initialUserContext } from "./initialUserContext";
 import { UserContext } from "./UserContext";
+import { initialUserContext } from "./initialUserContext";
+import { SERVER_ADDRESS } from "../../env";
 
 export function UserContextWrapper(props) {
     const [isLoggedIn, setIsLoggedIn] = useState(initialUserContext.isLoggedIn);
@@ -9,7 +10,7 @@ export function UserContextWrapper(props) {
     const [userId, setUserId] = useState(initialUserContext.userId);
 
     useEffect(() => {
-        fetch('http://localhost:5519/api/login', {
+        fetch(SERVER_ADDRESS + '/api/login', {
             method: 'GET',
             credentials: 'include',
         })
@@ -17,10 +18,10 @@ export function UserContextWrapper(props) {
             .then(data => {
                 if (data.status === 'success') {
                     login(data.user.email, data.user.id);
-                } 
+                }
             })
             .catch(console.error);
-    },[]);
+    }, []);
 
     function login(email, userId) {
         setIsLoggedIn(true);
