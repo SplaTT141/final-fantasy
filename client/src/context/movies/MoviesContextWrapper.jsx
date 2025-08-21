@@ -37,20 +37,20 @@ export function MoviesContextWrapper(props) {
             .catch(console.error);
     }
 
-    function deletePublicCategory(urlSlug) {
-        setPublicMovies(currentList => [...currentList.filter(c => c.url_slug !== urlSlug)]);
+    function deletePublicMovie(urlSlug) {
+        setPublicMovies(currentList => currentList.filter(movie => movie.url_slug !== urlSlug));
     }
 
-    function deleteAdminCategory(urlSlug) {
-        setAdminMovies(currentList => [...currentList.filter(c => c.url_slug !== urlSlug)]);
+    function deleteAdminMovie(urlSlug) {
+        setAdminMovies(currentList => currentList.filter(movie => movie.url_slug !== urlSlug));
     }
 
-    function getPublicCategoryByUrlSlug(url) {
-        return publicMovies.find(cat => cat.url_slug === url);
+    function getPublicMovieByUrlSlug(urlSlug) {
+        return publicMovies.find(movie => movie.url_slug === urlSlug);
     }
 
-    function getAdminCategoryByUrlSlug(url) {
-        return adminMovies.find(cat => cat.url_slug === url);
+    function getAdminMovieByUrlSlug(urlSlug) {
+        return adminMovies.find(movie => movie.url_slug === urlSlug);
     }
 
     useEffect(updatePublicMovies, []);
@@ -66,12 +66,12 @@ export function MoviesContextWrapper(props) {
     const values = {
         publicMovies,
         adminMovies,
-        getPublicCategoryByUrlSlug,
-        getAdminCategoryByUrlSlug,
+        getPublicMovieByUrlSlug,
+        getAdminMovieByUrlSlug,
         updatePublicMovies,
         updateAdminMovies,
-        deletePublicCategory,
-        deleteAdminCategory,
+        deletePublicMovie,
+        deleteAdminMovie,
     };
 
     return (

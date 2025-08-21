@@ -1,11 +1,10 @@
 import { connection } from "../../../db.js";
 import { IsValid } from "../../../lib/IsValid.js";
-// import { IsValid } from "../../../../src/lib/IsValid.js"
 
 export async function postAdminMovies(req, res) {
     const [err, msg] = IsValid.fields(req.body, {
         title: 'nonEmptyString',
-        url: 'nonEmptyString',
+        url: 'url',
         duration: 'numberInteger',
         category: 'numberInteger',
         status: 'nonEmptyString',
@@ -51,7 +50,9 @@ export async function postAdminMovies(req, res) {
         if (response.length > 0) {
             return res.status(400).json({
                 status: 'error',
-                msg: 'Tokia filmo nuoroda jau uzimta',
+                msg: {
+                    url: 'Tokia filmo nuoroda jau uzimta',
+                },
             });
         }
     } catch (error) {

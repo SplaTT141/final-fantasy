@@ -115,19 +115,19 @@ export class IsValid {
 
     static email(text) {
         if (typeof text !== 'string') {
-            return [true, 'El. pastas turi buti teksto tipo'];
+            return [true, 'El. pastas turi buti tekto tipo.'];
         }
 
         if (text.length < 6) {
-            return [true, 'El pastas negali buti trumpesnis nei 6 simboliai']
+            return [true, 'El. pastas negali buti trumpesnis nei 6 simboliai.'];
         }
 
         if (text.length > 50) {
-            return [true, 'El pastas negali buti ilgesnis nei 50 simboliu']
+            return [true, 'El. pastas negali buti ilgesnis nei 50 simboliu.'];
         }
 
         if (!text.includes('@')) {
-            return [true, 'El pastas privalo tureti simboli "@".']
+            return [true, 'El. pastas privalo tureti simboli "@".'];
         }
 
         return [false, ''];
@@ -151,7 +151,7 @@ export class IsValid {
         }
 
         if (text !== 'agree') {
-            return [true, 'Turite pazymeti, kad sutinkate su vartotojo salygomis'];
+            return [true, 'Sutikimas turi buti naudojant zodi "agree".'];
         }
 
         return [false, ''];
@@ -176,6 +176,37 @@ export class IsValid {
 
         if (n < 0) {
             return [true, 'Turi buti teigiamas skaicius'];
+        }
+
+        return [false, ''];
+    }
+
+    static url(text) {
+        if (typeof text !== 'string') {
+            return [true, 'Turi buti tekstas'];
+        }
+
+        text = text.trim();
+
+        if (text.length === 0) {
+            return [true, 'Nuoroda turi buti ne tuscia'];
+        }
+
+        if (text.includes(' ')) {
+            return [true, 'Nuoroda negali tureti tarpo simbolio'];
+        }
+
+        const allowedSymbols = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_!';
+        const errors = [];
+
+        for (const s of text) {
+            if (!allowedSymbols.includes(s) && !errors.includes(s)) {
+                errors.push(s);
+            }
+        }
+
+        if (errors.length) {
+            return [true, `Nuoroda negali tureti siu simboliu: ${errors.join(', ')}`];
         }
 
         return [false, ''];

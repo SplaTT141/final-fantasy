@@ -2,7 +2,7 @@ import { AdminCategoriesTableRow } from "./AdminCategoriesTableRow";
 
 export function AdminCategoriesTable({ list }) {
     return (
-        <div className="container">
+        <div className="container mt-5">
             <div className="row">
                 <div className="col-12">
                     <div className="table-responsive">
@@ -19,7 +19,7 @@ export function AdminCategoriesTable({ list }) {
                                 </tr>
                             </thead>
                             <tbody>
-                                {list.map(item => <AdminCategoriesTableRow key={item.id} data={item}/>)}
+                                {list.map(item => <AdminCategoriesTableRow key={item.id} category={item} />)}
                             </tbody>
                         </table>
                     </div>
